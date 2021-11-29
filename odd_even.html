@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd or Even? That is the question</title>
+</head>
+<script>
+function DisplayInput()  {
+    var nWNumber = document.getElementById("wnum").value;
+    if(nWNumber%1==0&&nWNumber>0)
+    {
+        if (nWNumber%2==0)
+        alert("偶數");
+       else
+        alert("奇數");
+    }
+    else 
+    {
+        alert("error");
+    }
+      
+    
+    
+}        
+function ShowResult(){
+    var nWNumber = document.getElementById("wnum").value;
+    
+    if(nWNumber%1==0&&nWNumber>0)
+    {
+        if (nWNumber%2==0)
+        {
+        document.getElementById("result").innerHTML="偶數";
+        }
+       else
+        {
+        document.getElementById("result").innerHTML="奇數";
+        }
+    }
+    else 
+    {
+        document.getElementById("result").innerHTML="error";
+    }
+      
+   
+}   
+
+
+
+
+
+</script>
+<body>
+
+<label>Please input a whole number</label>    
+<input type="text" id="wnum">  <br><br>
+<button type="button "onclick=" DisplayInput(),ShowResult();"on>Submit</button>
+
+<p id="result">display result here</p>
+</body>
+</html>

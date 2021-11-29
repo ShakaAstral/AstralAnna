@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十進位轉換</title>
+</head>
+
+<title>十進位轉二進位</title>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--//
+function rvt(){
+	var x=0, y=0;
+	p = new Array;
+	q = new Array;
+
+	e = document.getElementById('dec_num').value;
+	x = parseInt(e);
+
+	tbl = document.getElementById('righthere');
+	tbody = tbl.getElementsByTagName('tbody')[0];
+	trs = tbody.getElementsByTagName('tr');
+	tr0 = clearTD(trs[0]);
+	tr1 = clearTD(trs[1]);
+	tr2 = clearTD(trs[2]);
+
+	for (i=0; i<=30; i++)
+	{
+		y = Math.pow(2, i);
+		p[i] = i;
+		q[i] = (y&x)/y;
+
+		if (y>x)
+		{
+			break;
+		}
+	}
+	p.pop();
+	q.pop();
+
+	p.reverse();
+	q.reverse();
+
+	for (j=0;j<p.length ; j++)
+	{
+		td0s = createTD(q[j]);
+		tr0.appendChild(td0s);
+		td1s = createTD(p[j]);
+		tr1.appendChild(td1s);
+		td2s = createTD(Math.pow(2, p[j]));
+		tr2.appendChild(td2s);
+	}
+
+	document.getElementById('bin_num').value = q.join('');
+
+	document.getElementById('dec_num').focus();
+	document.getElementById('dec_num').select();
+	return false;
+}
+
+
+function createTD(e) {
+	var td = document.createElement('td');
+	var td_txt = document.createTextNode(e);
+	td.align = 'right';
+	td.appendChild(td_txt);
+	return td;
+}
+
+function clearTD(tr) {
+	tds = tr.getElementsByTagName('td');
+	for (i=tds.length-1; i>=0; i--)
+	{
+		tr.removeChild(tds[i]);
+		tds[i] = null;
+	}
+	return tr;
+}
+
+
+</script>
+</head>
+
+<body onload="document.getElementById('dec_num').focus();">
+
+<h1>十進位轉換</h1>
+
+<p>請輸入十進位數：<input id="dec_num" size="20">;<button onclick="rvt();">轉換</button></p>
+
+<table id="righthere" border="4" cellpadding="2" cellspacing="2">
+<caption>轉換表</caption>
+<tbody>
+	<tr>
+		<th>二進位</th>
+	</tr>
+	<tr>
+		<th>八進位</th>
+	</tr>
+	<tr>
+		<th>十六進位</th>
+	</tr>
+</tbody>
+
+
+
+
+</html>
